@@ -19,18 +19,20 @@ _setupTagMapping()
 
 def _getFormatTags(s):
 
-    foundTag = True
     tags = []
-    while (foundTag):
+    for line in s.split('\n'):
 
-        match = re.match(r'.*(<\/?.*>)', s)
+        foundTag = True
+        while (foundTag):
 
-        if (match is not None):
-            tags.append(match.group(1))
-            s = s.replace(match.group(1), '')
+            match = re.match(r'.*(<\/?.*>)', line)
 
-        else:
-            foundTag = False
+            if (match is not None):
+                tags.append(match.group(1))
+                line = line.replace(match.group(1), '')
+
+            else:
+                foundTag = False
 
     return tags
 
