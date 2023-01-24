@@ -43,7 +43,4 @@ def getConsoleText(s):
         if (tag in _tagMapping):
             s = s.replace(tag, _tagMapping[tag])
 
-        else:
-            raise Exception('Tag [%s] not found in pytext mapping!' % (tag))
-
     return s
